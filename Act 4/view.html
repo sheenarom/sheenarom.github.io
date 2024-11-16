@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dragon Ball Character Details</title>
+    <link rel="icon" href="https://i.pinimg.com/736x/78/2b/a2/782ba2925c0500abd46286dd07ddc226.jpg" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #fcbb60;
+        }
+
+        .header-logo {
+            max-height: 100px;
+            object-fit: contain;
+        }
+
+        .card {
+            background-color: #FFA500;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .card-title {
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .card-img-top {
+            width: 100%; 
+            height: auto;
+            object-fit: contain; 
+            max-height: 500px; 
+        }
+
+        .back-button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header class="bg-white text-dark mb-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="header-logo col-auto d-flex justify-content-start">
+                <img src="https://i.pinimg.com/736x/89/74/72/897472b81c448a4061318fd9ce73cb5d.jpg" alt="Dragon Ball Logo" class="img-fluid header-logo">
+            </div>
+            <div class="col text-center">
+                <h1 class="mb-0">Character Details</h1>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <a href="index.html" class="btn btn-dark back-button">Back to Characters</a>
+
+    <div class="card shadow-sm" id="character-details">
+
+    </div>
+</div>
+
+<script>
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const characterId = urlParams.get('characterId');
+
+    const apiUrl = `https://dragonball-api.com/api/characters/${characterId}`;
+
+    async function fetchCharacterDetails() {
+        try {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            
+            if (data) {
+                renderCharacterDetails(data);
+            } else {
+                document.getElementById('character-details').innerHTML = `
+                    <div class="text-center">
+                        <p class="text-danger">Character not found.</p>
+                    </div>
+                `;
+            }
+        } catch (error) {
+            console.error('Error fetching character details:', error);
+            document.getElementById('character-details').innerHTML = `
+                <div class="text-center">
+                    <p class="text-danger">Failed to fetch character details. Please try again later.</p>
+                </div>
+            `;
+        }
+    }
+
+    function renderCharacterDetails(character) {
+        const characterDetails = document.getElementById('character-details');
+        const imageUrl = character.image || 'https://via.placeholder.com/300';
+        
+        characterDetails.innerHTML = `
+            <h3 class="card-title">${character.name}</h3>
+            <img src="${imageUrl}" class="card-img-top" alt="${character.name}">
+            <div class="card-body">
+                <p><strong>Race:</strong> ${character.race || 'N/A'}</p>
+                <p><strong>Gender:</strong> ${character.gender || 'N/A'}</p>
+                <p><strong>Power Level:</strong> ${character.powerLevel || 'N/A'}</p>
+                <p><strong>Bio:</strong> ${character.bio || 'No biography available.'}</p>
+            </div>
+        `;
+    }
+
+    fetchCharacterDetails();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
