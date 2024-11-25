@@ -179,12 +179,23 @@
          background: linear-gradient(135deg, #4e73df, #1cc88a);
       } 
 
+      #activities .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between; 
+        gap: 20px; 
+      }
       #activities .card {
         border: none;
         border-radius: 12px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-        overflow: hidden;
+        width: calc(25% - 20px); 
+        max-width: 300px; 
+        height: 450px; 
+        display: flex;
+        flex-direction: column;
+        overflow: hidden; 
       }
 
       #activities .card:hover {
@@ -192,10 +203,17 @@
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       }
 
+      #activities .card img {
+        width: 100%; 
+        height: 250px; 
+        object-fit: cover; 
+      }
+
       #activities .card-body {
         padding: 10px;
         text-align: center;
-        background: #4e73df, #1cc88a;
+        background: linear-gradient(135deg, #4e73df, #1cc88a); 
+        flex-grow: 1; 
       }
 
       #activities .card-title {
@@ -270,7 +288,32 @@
       #portfolio .filter-btn:hover {
         background-color: #0056b3;
       }
-      
+
+      #portfolio .portfolio-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #portfolio .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      #portfolio .card:hover {
+       transform: translateY(-10px);
+       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      #portfolio .card-img-top {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        height: 200px;
+        object-fit: cover;
+      }
+
       .icon-link {
         font-size: 2rem;
         margin: 10px;
@@ -354,68 +397,57 @@
     </section>
 
     <section class="jumbotron text-center">
+      <div id="activities">
       <h1 class="display-4">Course Activities</h1>
       <p class="lead">Explore my activities below.</p>
-    </section>
-
-    <section class="container my-5" id="activities">
-      <div class="row">
-        <div class="col-md-6">
-          <div class="card mb-4">
-            <img src="Activity1.png" alt="Product Brochure" class="card-img-top" />
-            <div class="card-body text-center">
-              <h5 class="card-title">Activity 1</h5>
-              <p class="card-text">Product Brochure</p>
-              <a
-                href="https://drive.google.com/file/d/1odsBrcuTMYkuc-awn1J7fvpxaEjKn9nr/view?usp=sharing"
-                class="btn btn-primary"
-                >Go to Activity 1</a
-              >
-            </div>
+      <div class="card-container">
+        <div class="card">
+          <img src="Activity1.png" alt="Product Brochure">
+          <div class="card-body">
+            <h5 class="card-title">Product Brochure</h5>
+            <p class="card-text">Takoyaki Brochure .</p>
+            <a
+            href="https://drive.google.com/file/d/1odsBrcuTMYkuc-awn1J7fvpxaEjKn9nr/view?usp=sharing"
+            class="btn btn-primary"
+            >Go to Activity 1</a>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="card mb-4">
-            <img src="Activity2.png" alt="Country Showcase" class="card-img-top" />
-            <div class="card-body text-center">
-              <h5 class="card-title">Activity 2</h5>
-              <p class="card-text">Country Showcase</p>
-              <a href="Act 2/index.html" class="btn btn-primary"
-                >Go to Activity 2</a>
-            </div>
+        <div class="card">
+          <img src="Activity2.png" alt="Country Showcase">
+          <div class="card-body">
+            <h5 class="card-title">Coutry Showcase</h5>
+            <p class="card-text">Description for card .</p>
+            <a href="Act 2/index.html" class="btn btn-primary"
+            >Go to Activity 2</a>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="card mb-4">
-            <img src="Takoyaki_Brochure.png" alt="Home Page" class="card-img-top" />
-            <div class="card-body text-center">
-              <h5 class="card-title">Activity 3</h5>
-              <p class="card-text">Home Page</p>
-              <a href="#" class="btn btn-primary">Go to Activity 3</a>
-            </div>
+        <div class="card">
+          <img src="Takoyaki_Brochure.png" alt="Home Page">
+          <div class="card-body">
+            <h5 class="card-title">Home Page </h5>
+            <p class="card-text">Description for card</p>
+            <a href="#" class="btn btn-primary">Go to Activity 3</a>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="card mb-4">
-            <img src="Activity4.jpeg" alt="Dragon Ball API" class="card-img-top" />
-            <div class="card-body text-center">
-              <h5 class="card-title">Activity 4</h5>
-              <p class="card-text">Dragon Ball API Webpage</p>
-              <a href="Act 4/index.html" class="btn btn-primary"
-                >Go to Activity 4</a>
-            </div>
+        <div class="card">
+          <img src="Activity4.jpeg" alt="Dragon Ball API">
+          <div class="card-body">
+            <h5 class="card-title">Dragon Ball API</h5>
+            <p class="card-text">Description for card .</p>
+            <a href="Act 4/index.html" class="btn btn-primary"
+            >Go to Activity 4</a>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="card mb-4">
-            <img src="Takoyaki_Brochure.png" alt="Product Brochure" class="card-img-top" />
-            <div class="card-body text-center">
-              <h5 class="card-title">Activity 5</h5>
-              <p class="card-text">Embed Video</p>
-              <a href="Act 4/index.html" class="btn btn-primary"
-                >Go to Activity 5</a>
-            </div>
-          </div>
+      </div>
+      <div class="card">
+        <img src="Activity4.jpeg" alt="Activity5">
+        <div class="card-body">
+          <h5 class="card-title">Embed Video</h5>
+          <p class="card-text">Description for card 5.</p>
+          <a href="Act 4/index.html" class="btn btn-primary"
+          >Go to Activity 5</a>
+        </div>
+      </div>
       </div>
     </div>
     </section>
