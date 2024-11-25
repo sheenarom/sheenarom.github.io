@@ -181,10 +181,10 @@
 
       #activities .card {
         border: none;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border-radius: 10px;
         overflow: hidden;
-        margin-bottom: 30px;
       }
 
       #activities .card:hover {
@@ -399,23 +399,39 @@
 
     <section class="container my-5" id="portfolio">
       <h2 class="text-center mb-4">Portfolio</h2>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="portfolio-item">
-            <img src="404 Not Found.jpg" alt="Project 1" />
-            <p class="mt-2">404 Not Found- Description of the project.</p>
+      <p class="text-center text-muted">Showcasing some of my recent work and projects.</p>
+      <div class="text-center mb-4">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="app">App</button>
+        <button class="filter-btn" data-filter="card">Card</button>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4 portfolio-item" data-category="web">
+          <div class="card">
+            <img src="404 Not Found.jpg" class="card-img-top" alt="Project 1">
+            <div class="card-body">
+              <h5 class="card-title">404 Not Found</h5>
+              <p class="card-text">Description of the project.</p>
+            </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="portfolio-item">
-            <img src="Sneakers.jpg" alt="Project 2" />
-            <p class="mt-2">Midterm Exam - Description of the project.</p>
+        <div class="col-md-4 portfolio-item" data-category="card">
+          <div class="card">
+            <img src="Sneakers.jpg" class="card-img-top" alt="Project 2">
+            <div class="card-body">
+              <h5 class="card-title">Midterm Exam</h5>
+              <p class="card-text">Description of the project.</p>
+            </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="portfolio-item">
-            <img src="Parallax.png" alt="Project 3" />
-            <p class="mt-2">Parallax Activity - Description of the project.</p>
+        <div class="col-md-4 portfolio-item" data-category="web">
+          <div class="card">
+            <img src="Parallax.png" class="card-img-top" alt="Project 3">
+            <div class="card-body">
+              <h5 class="card-title">Parallax Activity</h5>
+              <p class="card-text">Description of the project.</p>
+            </div>
           </div>
         </div>
       </div>
