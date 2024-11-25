@@ -174,16 +174,22 @@
          transform: translateY(0);
       }
     }
+      #activities {
+         padding: 50px 0;
+         background: linear-gradient(135deg, #4e73df, #1cc88a);
+      } 
 
-      .card {
-        background: linear-gradient(135deg, #4e73df, #1cc88a);
+      #activities .card {
+        border: none;
+        border-radius: 12px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border: none;
+        overflow: hidden;
       }
 
-      .card:hover {
-        transform: scale(1.05);
+      #activities .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       }
 
       footer {
