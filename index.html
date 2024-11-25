@@ -241,37 +241,88 @@
         transform: scale(1.1); 
       }
 
-      footer {
-        background-color: #fab5ed;
-        color: #f3f3f3;
-        padding: 1rem;
+      #contact {
+        background: #f9f9f9;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       }
+
+      #contact h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+      }
+
+      #contact form .form-control {
+        border: 1px solid #ced4da;
+        border-radius: 8px;
+        padding: 10px;
+}
+      #contact form .btn {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 25px;
+        transition: background 0.3s ease, transform 0.2s ease;
+}
+
+      #contact form .btn:hover {
+       background-color: #0056b3;
+       transform: scale(1.05);
+    }
+
+      #contact .map-container iframe {
+        border-radius: 10px;
+        border: 1px solid #ddd;
+    }
+
+      footer {
+        background-color: #333;
+        color: #fff;
+    }
 
       footer p {
         margin: 0;
-        font-size: 0.9rem;
-        color: #0e0909;
-      }
+        font-size: 1rem;
+    }
 
-      #portfolio {
+      footer .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+      footer .social-icons a {
+        color: #fff;
+        font-size: 1.5rem;
+        transition: color 0.3s ease;
+    }
+
+      footer .social-icons a:hover {
+        color: #007bff;
+    }
+
+      #projects {
         background: #f9f9f9;
         padding: 50px 20px;
         border-radius: 10px;
       }
 
-      #portfolio h2 {
+      #projectsh2 {
         font-size: 2.5rem;
         color: #333;
         font-weight: bold;
       }
 
-      #portfolio .text-muted {
+      #projects .text-muted {
         font-size: 1rem;
         margin-bottom: 20px;
         color: #6c757d;
       }
 
-      #portfolio .filter-btn {
+      #projects .filter-btn {
         display: inline-block;
         margin: 0 10px;
         padding: 10px 20px;
@@ -283,30 +334,30 @@
         transition: all 0.3s ease;
       }
 
-      #portfolio .filter-btn.active,
-      #portfolio .filter-btn:hover {
+      #projects .filter-btn.active,
+      #projects .filter-btn:hover {
         background-color: #0056b3;
       }
 
-      #portfolio .portfolio-item {
+      #projects .projects-item {
         display: flex;
         justify-content: center;
         align-items: center;
       }
 
-      #portfolio .card {
+      #projects .card {
         border: none;
         border-radius: 10px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
       }
 
-      #portfolio .card:hover {
+      #projects .card:hover {
        transform: translateY(-10px);
        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       }
 
-      #portfolio .card-img-top {
+      #projects .card-img-top {
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
         height: 200px;
@@ -442,8 +493,8 @@
     </div>
     </section>
 
-    <section class="container my-5" id="portfolio">
-      <h2 class="text-center mb-4">Portfolio</h2>
+    <section class="container my-5" id="projects">
+      <h2 class="text-center mb-4">Projects</h2>
       <p class="text-center text-muted">Showcasing some of my recent work and projects.</p>
       <div class="text-center mb-4">
         <button class="filter-btn" data-filter="404 Not Found">404 Not Found</button>
@@ -451,7 +502,7 @@
         <button class="filter-btn" data-filter="parallax">Parallax</button>
       </div>
       <div class="row g-4">
-        <div class="col-md-4 portfolio-item" data-category="web">
+        <div class="col-md-4 projects-item" data-category="404 not found">
           <div class="card">
             <img src="404 Not Found.jpg" class="card-img-top" alt="Project 1">
             <div class="card-body">
@@ -460,7 +511,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4 portfolio-item" data-category="card">
+        <div class="col-md-4 portfolio-item" data-category="midterm">
           <div class="card">
             <img src="Sneakers.jpg" class="card-img-top" alt="Project 2">
             <div class="card-body">
@@ -469,7 +520,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4 portfolio-item" data-category="web">
+        <div class="col-md-4 portfolio-item" data-category="parallax">
           <div class="card">
             <img src="Parallax.png" class="card-img-top" alt="Project 3">
             <div class="card-body">
