@@ -175,23 +175,22 @@
       }
     }
       #activities {
-         padding: 10px 0;
+         padding: 20px;
          background: linear-gradient(135deg, #4e73df, #1cc88a);
       } 
 
       #activities .card-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between; 
+        display: grid;
+        grid-template-columns:  repeat(auto-fit, minmax(250px, 1fr));;
         gap: 20px; 
+        justify-content: center;
       }
+
       #activities .card {
         border: none;
         border-radius: 12px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
-        width: calc(25% - 20px); 
-        max-width: 300px; 
         height: 450px; 
         display: flex;
         flex-direction: column;
@@ -210,7 +209,7 @@
       }
 
       #activities .card-body {
-        padding: 10px;
+        padding: 15px;
         text-align: center;
         background: linear-gradient(135deg, #4e73df, #1cc88a); 
         flex-grow: 1; 
@@ -439,16 +438,7 @@
           </div>
         </div>
       </div>
-      <div class="card">
-        <img src="Activity4.jpeg" alt="Activity5">
-        <div class="card-body">
-          <h5 class="card-title">Embed Video</h5>
-          <p class="card-text">Description for card 5.</p>
-          <a href="Act 4/index.html" class="btn btn-primary"
-          >Go to Activity 5</a>
-        </div>
-      </div>
-      </div>
+    </div>
     </div>
     </section>
 
@@ -456,10 +446,9 @@
       <h2 class="text-center mb-4">Portfolio</h2>
       <p class="text-center text-muted">Showcasing some of my recent work and projects.</p>
       <div class="text-center mb-4">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="web">Web</button>
-        <button class="filter-btn" data-filter="app">App</button>
-        <button class="filter-btn" data-filter="card">Card</button>
+        <button class="filter-btn" data-filter="404 Not Found">404 Not Found</button>
+        <button class="filter-btn" data-filter="midterm">Midterm</button>
+        <button class="filter-btn" data-filter="parallax">Parallax</button>
       </div>
       <div class="row g-4">
         <div class="col-md-4 portfolio-item" data-category="web">
