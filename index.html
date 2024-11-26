@@ -1,483 +1,474 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home Page</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      rel="icon"
-      href="https://i.pinimg.com/736x/78/2b/a2/782ba2925c0500abd46286dd07ddc226.jpg"
-      type="image/png"
-    />
-    <style>
-      body {
-        font-family: "Arial", "Helvetica", sans-serif;
-        background-color: #e8ebf0;
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="icon" href="https://i.pinimg.com/736x/78/2b/a2/782ba2925c0500abd46286dd07ddc226.jpg" type="image/png" />
+  <style>
+    body {
+      font-family: "Arial", "Helvetica", sans-serif;
+      background-color: #e8ebf0;
+    }
+
+    .navbar {
+      background-color: #f8f9fa;
+      border-bottom: 2px solid #ddd;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .navbar-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      color: #333;
+      letter-spacing: 2px;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      color: #333;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 10px 20px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .navbar-nav .nav-item .nav-link:hover,
+    .navbar-nav .nav-item .nav-link:focus {
+      color: #ff5722;
+      transform: translateY(-3px);
+      text-decoration: none;
+    }
+
+    .navbar-toggler {
+      border-color: #ff5722;
+    }
+
+    .navbar-toggler-icon {
+      background-color: #ff5722;
+    }
+
+    .navbar:hover {
+      background-color: #f1f1f1;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-collapse {
+      transition: opacity 0.3s ease;
+    }
+
+    .navbar-nav .nav-item {
+      margin-bottom: 10px;
+    }
+
+    .hero-section {
+      background-image: url('imgs/background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .hero-section .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-section h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .hero-section p.lead {
+      font-size: 1.25rem;
+      margin-top: 15px;
+      color: #333;
+    }
+
+    .hero-section img {
+      max-width: 500px;
+    }
+
+    .hero-section .btn {
+      background-color: #007bff;
+      border: none;
+      transition: all 0.3s ease;
+    }
+
+    .hero-section .btn:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    #about {
+      background: linear-gradient(to right, #f3e7e9, #e3eeff);
+      padding: 50px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    #about img {
+      border-radius: 50px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #about img:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    #about h2 {
+      font-family: 'Georgia', serif;
+      font-size: 2.5rem;
+      color: #2c2c54;
+      margin-bottom: 20px;
+      border-bottom: 3px solid #ec38b0;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    #about p {
+      font-family: 'Arial', sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #333;
+      text-align: center;
+    }
+
+    .jumbotron {
+      background: linear-gradient(135deg, #4e73df, #1cc88a);
+      color: white;
+      padding: 30px 0;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .jumbotron:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .jumbotron .display-4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .jumbotron .lead {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+      opacity: 0.8;
+      margin-bottom: 40px;
+      animation: fadeInUp 1.5s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
       }
 
-        .navbar {
-           background-color: #f8f9fa;
-           border-bottom: 2px solid #ddd;
-           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-          transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      }
-
-        .navbar-brand {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 1.8rem;
-          color: #333;
-          letter-spacing: 2px;
-          font-weight: bold;
-          text-transform: uppercase;
-          transition: color 0.3s ease;
-      }
-
-        .navbar-nav .nav-item .nav-link {
-          font-family: 'Poppins', sans-serif;
-          font-size: 1rem;
-          color: #333;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          padding: 10px 20px;
-          transition: color 0.3s ease, transform 0.3s ease;
-      }
-
-        .navbar-nav .nav-item .nav-link:hover,
-        .navbar-nav .nav-item .nav-link:focus {
-          color: #ff5722; 
-          transform: translateY(-3px);
-          text-decoration: none;
-      }
-
-        .navbar-toggler {
-          border-color: #ff5722;
-      }
-
-        .navbar-toggler-icon {
-          background-color: #ff5722; 
-      }
-
-        .navbar:hover {
-          background-color: #f1f1f1;
-          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      }
-
-       .navbar-collapse {
-         transition: opacity 0.3s ease;
-      }
-
-      .navbar-nav .nav-item {
-        margin-bottom: 10px;
-      }
-
-      .hero-section {
-         background-image: url('imgs/background.png');
-         background-size: cover; 
-         background-position: center; 
-         background-repeat: no-repeat;
-         position: relative;
-         overflow: hidden;
-      }
-
-      .hero-section::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%; 
-        z-index: 1;
-      }
-
-      .hero-section .container {
-        position: relative;
-        z-index: 2;
-      }
-
-      .hero-section h1 {
-        font-size: 3rem;
-        font-weight: 700;
-        color: #333; 
-      }
-
-      .hero-section p.lead {
-        font-size: 1.25rem;
-        margin-top: 15px;
-        color: #333;
-      }
-
-      .hero-section img {
-        max-width: 500px;
-      }
-
-      .hero-section .btn {
-        background-color: #007bff;
-        border: none;
-        transition: all 0.3s ease;
-      }
-
-      .hero-section .btn:hover {
-        background-color: #0056b3;
-        transform: scale(1.05); 
-      }
-      
-      #about {
-        background: linear-gradient(to right, #f3e7e9, #e3eeff); 
-        padding: 50px 0;
-        border-radius: 12px; 
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      }
-      #about img {
-        border-radius: 50px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      #about img:hover {
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      }
-
-      #about h2 {
-        font-family: 'Georgia', serif;
-        font-size: 2.5rem;
-        color: #2c2c54;
-        margin-bottom: 20px;
-        border-bottom: 3px solid #ec38b0; 
-        display: inline-block;
-        padding-bottom: 5px;
-      }
-
-      #about p {
-        font-family: 'Arial', sans-serif;
-        font-size: 1.1rem;
-        line-height: 1.6;
-        color: #333;
-        text-align: center;
-      }
-
-      .jumbotron {
-         background: linear-gradient(135deg, #4e73df, #1cc88a);
-         color: white;
-         padding: 30px 0; 
-         text-align: center;
-         border-radius: 10px;
-         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-         transition: all 0.3s ease; 
-      }
-
-      .jumbotron:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2); 
-      }
-
-      .jumbotron .display-4 {
-        font-family: 'Montserrat', sans-serif;
-        font-size: 3rem;
-        font-weight: bold; 
-        letter-spacing: 2px;
-        text-transform: uppercase;
-        margin-bottom: 20px; 
-        animation: fadeInUp 1s ease-out;
-      }
-
-      .jumbotron .lead {
-        font-family: 'Poppins', sans-serif; 
-        font-size: 1.2rem; 
-        letter-spacing: 1px;
-        opacity: 0.8;
-        margin-bottom: 40px;
-        animation: fadeInUp 1.5s ease-out;
-      }
-
-      @keyframes fadeInUp {
-        0% {
-         opacity: 0;
-         transform: translateY(20px);
-        }
-        100% {
-         opacity: 1;
-         transform: translateY(0);
+      100% {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
-      #activities {
-         padding: 20px;
-         background: linear-gradient(135deg, #4e73df, #1cc88a);
-      } 
 
-      #activities .card-container {
-        display: grid;
-        grid-template-columns:  repeat(auto-fit, minmax(250px, 1fr));;
-        gap: 20px; 
-        justify-content: center;
-      }
+    #activities {
+      padding: 20px;
+      background: linear-gradient(135deg, #4e73df, #1cc88a);
+    }
 
-      #activities .card {
-        border: none;
-        border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        height: 450px; 
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        display: flex;
-        text-decoration: none;
-      }
+    #activities .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      ;
+      gap: 20px;
+      justify-content: center;
+    }
 
-      #activities .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      }
+    #activities .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 450px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      display: flex;
+      text-decoration: none;
+    }
 
-      #activities .card img {
-        width: 100%; 
-        height: 250px; 
-        object-fit: cover; 
-      }
+    #activities .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
 
-      #activities .card-body {
-        padding: 15px;
-        text-align: center;
-        background: linear-gradient(135deg, #4e73df, #1cc88a); 
-        flex-grow: 1; 
-      }
+    #activities .card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
 
-      #activities .card-title {
-        font-size: 1.5rem;
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 10px;
-      }
+    #activities .card-body {
+      padding: 15px;
+      text-align: center;
+      background: linear-gradient(135deg, #4e73df, #1cc88a);
+      flex-grow: 1;
+    }
 
-      #activities .card-text {
-        font-size: 1rem;
-        color: #666;
-        margin-bottom: 20px;
-      }
+    #activities .card-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
 
-      #activities .btn {
-        background: #007bff;
-        color: #fff;
-        padding: 10px 20px;
-        border-radius: 25px;
-        transition: background 0.3s ease, transform 0.2s ease;
-      }
+    #activities .card-text {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 20px;
+    }
 
-      #activities .btn:hover {
-        background: #0056b3;
-        transform: scale(1.1); 
-      }
+    #activities .btn {
+      background: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 25px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
 
-      #contact {
-        background: #f9f9f9;
-        border-radius: 10px;
-        padding: 30px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
+    #activities .btn:hover {
+      background: #0056b3;
+      transform: scale(1.1);
+    }
 
-      #contact h2 {
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 20px;
-      }
+    #contact {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-      #contact form .form-control {
-        border: 1px solid #ced4da;
-        border-radius: 8px;
-        padding: 10px;
-      }
-      #contact form .btn {
-        background-color: #007bff;
-        color: #fff;
-        padding: 10px 20px;
-        border-radius: 25px;
-        transition: background 0.3s ease, transform 0.2s ease;
-      }
+    #contact h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 20px;
+    }
 
-      #contact form .btn:hover {
-       background-color: #0056b3;
-       transform: scale(1.05);
-      }
+    #contact form .form-control {
+      border: 1px solid #ced4da;
+      border-radius: 8px;
+      padding: 10px;
+    }
 
-      #contact .map-container iframe {
-        border-radius: 10px;
-        border: 1px solid #ddd;
-      }
+    #contact form .btn {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 25px;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
 
-      footer {
-        background-color: #333;
-        color: #fff;
-      }
+    #contact form .btn:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
 
-      footer p {  
-        margin: 0;
-        font-size: 1rem;
-      }
+    #contact .map-container iframe {
+      border-radius: 10px;
+      border: 1px solid #ddd;
+    }
 
-      footer .social-icons {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-      }
+    footer {
+      background-color: #333;
+      color: #fff;
+    }
 
-      footer .social-icons a {
-        color: #fff;
-        font-size: 1.5rem;
-        transition: color 0.3s ease;
-      }
+    footer p {
+      margin: 0;
+      font-size: 1rem;
+    }
 
-      footer .social-icons a:hover {
-        color: #007bff;
-      }   
+    footer .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
 
-      #projects {
-        background: #f9f9f9;
-        padding: 50px 20px;
-        border-radius: 10px;
-      }
+    footer .social-icons a {
+      color: #fff;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
 
-      #projects h2 {
-        font-size: 2.5rem;
-        color: #333;
-        font-weight: bold;
-      }
+    footer .social-icons a:hover {
+      color: #007bff;
+    }
 
-      #projects .text-muted {
-        font-size: 1rem;
-        margin-bottom: 20px;
-        color: #6c757d;
-      }
+    #projects {
+      background: #f9f9f9;
+      padding: 50px 20px;
+      border-radius: 10px;
+    }
 
-      #projects .filter-btn {
-        display: inline-block;
-        margin: 0 10px;
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 20px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
+    #projects h2 {
+      font-size: 2.5rem;
+      color: #333;
+      font-weight: bold;
+    }
 
-      #projects .filter-btn.active,
-      #projects .filter-btn:hover {
-        background-color: #0056b3;
-      }
+    #projects .text-muted {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #6c757d;
+    }
 
-      #projects .projects-item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+    #projects .filter-btn {
+      display: inline-block;
+      margin: 0 10px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
 
-      #projects .card {
-        border: none;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
+    #projects .filter-btn.active,
+    #projects .filter-btn:hover {
+      background-color: #0056b3;
+    }
 
-      #projects .card:hover {
-       transform: translateY(-10px);
-       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      }
+    #projects .projects-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-      #projects .card-img-top {
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        height: 200px;
-        object-fit: cover;
-      }
+    #projects .card {
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-      .icon-link {
-        font-size: 2rem;
-        margin: 10px;
-        color: #5c6ac4;
-        transition: color 0.3s ease;
-      }
-    </style>
-  </head>
+    #projects .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
 
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
-      <div class="container">
-        <a class="navbar-brand fw-bold" href="#">PORTFOLIO</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#activities">Activities</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#projects">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
-            </li>
-          </ul>
-        </div>
+    #projects .card-img-top {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .icon-link {
+      font-size: 2rem;
+      margin: 10px;
+      color: #5c6ac4;
+      transition: color 0.3s ease;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">PORTFOLIO</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#activities">Activities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <header class="hero-section text-center text-md-start py-5" id="home">
-      <div class="container d-flex align-items-center flex-column flex-md-row">
-        <div class="col-md-6 order-md-1 text-white">
-          <h1 class="fw-bold">Sheena Rom</h1>
-          <p class="lead">
-            I'm a professional illustrator and creative designer.
-          </p>
-          <a href="ROM-RESUME.pdf" class="btn btn-primary btn-lg mt-3"
-            >Resume</a >
-        </div>
-        <div class="col-md-6 text-center order-md-2">
-          <img
-            src="imgs/sheena.png"
-            alt="Sheena Rom"
-            class="img-fluid rounded-circle"/>
-        </div>
+  <header class="hero-section text-center text-md-start py-5" id="home">
+    <div class="container d-flex align-items-center flex-column flex-md-row">
+      <div class="col-md-6 order-md-1 text-white">
+        <h1 class="fw-bold">Sheena Rom</h1>
+        <p class="lead">
+          I'm a professional illustrator and creative designer.
+        </p>
+        <a href="ROM-RESUME.pdf" class="btn btn-primary btn-lg mt-3">Resume</a>
       </div>
-    </header>
-
-    <section class="container my-5" id="about">
-      <div class="row">
-        <div class="col-md-6">
-          <img src="imgs/sheena.png" alt="About Me" class="img-fluid rounded" />
-        </div>
-        <div class="col-md-6">
-          <h2>About Me</h2>
-          <p>
-            Hello! I’m <strong>Sheena Rom</strong>, a 4th-year BS Information Technology student at the
-            <strong>Polytechnic University of the Philippines (PUP) </strong> 
-          </p>
-          <p>
-            I’m a passionate designer with a keen eye for detail and a love for
-            creativity. My expertise lies in crafting user-friendly designs and
-            innovative visuals that combine technology and art. From graphic
-            design to web development projects, I aim to deliver work that is
-            not only functional but also meaningful.
-          </p>
-          </div>
-        </div>
+      <div class="col-md-6 text-center order-md-2">
+        <img src="imgs/sheena.png" alt="Sheena Rom" class="img-fluid rounded-circle" />
       </div>
-    </section>
+    </div>
+  </header>
 
-    <section class="jumbotron text-center">
-      <div id="activities">
+  <section class="container my-5" id="about">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="imgs/sheena.png" alt="About Me" class="img-fluid rounded" />
+      </div>
+      <div class="col-md-6">
+        <h2>About Me</h2>
+        <p>
+          Hello! I’m <strong>Sheena Rom</strong>, a 4th-year BS Information Technology student at the
+          <strong>Polytechnic University of the Philippines (PUP) </strong>
+        </p>
+        <p>
+          I’m a passionate designer with a keen eye for detail and a love for
+          creativity. My expertise lies in crafting user-friendly designs and
+          innovative visuals that combine technology and art. From graphic
+          design to web development projects, I aim to deliver work that is
+          not only functional but also meaningful.
+        </p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="jumbotron text-center">
+    <div id="activities">
       <h1 class="display-4">Course Activities</h1>
       <p class="lead">Explore my activities below.</p>
       <div class="card-container">
@@ -487,8 +478,7 @@
             <h5 class="card-title">Product Brochure</h5>
             <p class="card-text">Takoyaki Brochure .</p>
             <a href="https://drive.google.com/file/d/1odsBrcuTMYkuc-awn1J7fvpxaEjKn9nr/view?usp=sharing"
-            class="btn btn-primary"
-            >Go to Activity 1</a>
+              class="btn btn-primary">Go to Activity 1</a>
           </div>
         </div>
         <div class="card">
@@ -496,8 +486,7 @@
           <div class="card-body">
             <h5 class="card-title">Coutry Showcase</h5>
             <p class="card-text">Description for card .</p>
-            <a href="Act 2/index.html" class="btn btn-primary"
-            >Go to Activity 2</a>
+            <a href="Act 2/index.html" class="btn btn-primary">Go to Activity 2</a>
           </div>
         </div>
         <div class="card">
@@ -513,8 +502,7 @@
           <div class="card-body">
             <h5 class="card-title">Dragon Ball API</h5>
             <p class="card-text">Description for card .</p>
-            <a href="Act 4/index.html" class="btn btn-primary"
-            >Go to Activity 4</a>
+            <a href="Act 4/index.html" class="btn btn-primary">Go to Activity 4</a>
           </div>
         </div>
         <div class="card">
@@ -522,105 +510,99 @@
           <div class="card-body">
             <h5 class="card-title">Embed Video</h5>
             <p class="card-text">Description for card .</p>
-            <a href="Act 5/index.html" class="btn btn-primary"
-            >Go to Activity 5</a>
+            <a href="Act 5/index.html" class="btn btn-primary">Go to Activity 5</a>
+          </div>
+        </div>
+        <div class="card">
+          <img src="imgs/Activity4.jpeg" alt="Apk">
+          <div class="card-body">
+            <h5 class="card-title">Apk</h5>
+            <p class="card-text">Description for card .</p>
+            <a href="Act 4/index.html" class="btn btn-primary">Go to Activity 6</a>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="card">
-      <img src="imgs/Activity4.jpeg" alt="Apk">
-      <div class="card-body">
-        <h5 class="card-title">Apk</h5>
-        <p class="card-text">Description for card .</p>
-        <a href="Act 4/index.html" class="btn btn-primary"
-        >Go to Activity 6</a>
-      </div>
-    </div>
-  </div>  
-    </div>
-    </section>
+  </section>
 
-    <section class="container my-5" id="projects">
-      <h2 class="text-center mb-4">Projects</h2>
-      <p class="text-center text-muted">Showcasing some of my recent work and projects.</p>
-      <div class="text-center mb-4">
-        <button class="filter-btn" data-filter="404 Not Found">404 Not Found</button>
-        <button class="filter-btn" data-filter="midterm">Midterm</button>
-        <button class="filter-btn" data-filter="parallax">Parallax</button>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-4 projects-item" data-category="404 Not Found">
-          <div class="card">
-            <img src="imgs/404 Not Found.jpg" class="card-img-top" alt="Project 1">
-            <div class="card-body">
-              <h5 class="card-title">404 Not Found</h5>
-              <p class="card-text">Description of the project.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 portfolio-item" data-category="midterm">
-          <div class="card">
-            <img src="imgs/Sneakers.jpg" class="card-img-top" alt="Project 2">
-            <div class="card-body">
-              <h5 class="card-title">Midterm Exam</h5>
-              <p class="card-text">Description of the project.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 portfolio-item" data-category="parallax">
-          <div class="card">
-            <img src="imgs/Activity2.png" class="card-img-top" alt="Project 3">
-            <div class="card-body">
-              <h5 class="card-title">Parallax Activity</h5>
-              <p class="card-text">Description of the project.</p>
-            </div>
+  <section class="container my-5" id="projects">
+    <h2 class="text-center mb-4">Projects</h2>
+    <p class="text-center text-muted">Showcasing some of my recent work and projects.</p>
+    <div class="text-center mb-4">
+      <button class="filter-btn" data-filter="404 Not Found">404 Not Found</button>
+      <button class="filter-btn" data-filter="midterm">Midterm</button>
+      <button class="filter-btn" data-filter="parallax">Parallax</button>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4 projects-item" data-category="404 Not Found">
+        <div class="card">
+          <img src="imgs/404 Not Found.jpg" class="card-img-top" alt="Project 1">
+          <div class="card-body">
+            <h5 class="card-title">404 Not Found</h5>
+            <p class="card-text">Description of the project.</p>
           </div>
         </div>
       </div>
-    </section>
+      <div class="col-md-4 portfolio-item" data-category="midterm">
+        <div class="card">
+          <img src="imgs/Sneakers.jpg" class="card-img-top" alt="Project 2">
+          <div class="card-body">
+            <h5 class="card-title">Midterm Exam</h5>
+            <p class="card-text">Description of the project.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 portfolio-item" data-category="parallax">
+        <div class="card">
+          <img src="imgs/Activity2.png" class="card-img-top" alt="Project 3">
+          <div class="card-body">
+            <h5 class="card-title">Parallax Activity</h5>
+            <p class="card-text">Description of the project.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="container my-5" id="contact">
-      <h2 class="text-center mb-4">Contact Me</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <form>
-            <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name" required />
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" required />
-            </div>
-            <div class="mb-3">
-              <label for="message" class="form-label">Message</label>
-              <textarea
-                class="form-control"
-                id="message"
-                rows="4"
-                required
-              ></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-          </form>
-        </div>
-        <div class="col-md-6">
-          <h5>Contact Details</h5>
-          <p>Email: sheenarom27@gmail.com</p>
-          <p>Phone: (097) 5613-4542</p>
-          <p>Location: MMRC San Bartolome Santo Tomas Batangas</p>
-          <iframe
+  <section class="container my-5" id="contact">
+    <h2 class="text-center mb-4">Contact Me</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <form>
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" required />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" required />
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <h5>Contact Details</h5>
+        <p>Email: sheenarom27@gmail.com</p>
+        <p>Phone: (097) 5613-4542</p>
+        <p>Location: MMRC San Bartolome Santo Tomas Batangas</p>
+        <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.41919079843!2d121.1723338738318!3d14.11142798886827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd66766c78c6d3%3A0xd8eff2f703991b0a!2sMount%20Makiling%20Re-Creation%20Center!5e0!3m2!1sen!2sph!4v1732458126364!5m2!1sen!2sph"
           width="100%" height="300" style="border: 0;" allowfullscreen="" loading="lazy">
         </iframe>
       </div>
     </div>
-  </div>
-</section>
+    </div>
+  </section>
 
-    <footer class="text-center py-4">
-  <p>&copy; Sheena Rom 2024.</p>
-</footer>
+  <footer class="text-center py-4">
+    <p>&copy; Sheena Rom 2024.</p>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>
