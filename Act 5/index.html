@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fairy Tail Fan Page</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f7941d;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+  transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: #f7941d;
+  border-radius: 5px;
+}
+
+.hero-section {
+  background-image: url('assets/images/fairy-tail-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.characters-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+}
+
+.characters-section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.character-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.character-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 15px;
+}
+
+.character-card img {
+  max-width: 100%;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.character-card h3 {
+  color: #f7941d;
+  margin-bottom: 10px;
+}
+
+.videos-section {
+  padding: 60px 20px;
+}
+
+.videos-section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.video-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.video-list iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+footer p {
+  font-size: 1rem;
+}
+</style>
+</body>
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <a href="#home" class="logo">Fairy Tail</a>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#characters">Characters</a></li>
+          <li><a href="#videos">Videos</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+  <section id="home" class="hero-section">
+    <div class="container text-center">
+      <h1>Welcome to Fairy Tail</h1>
+      <p>Explore the magical world of Fairy Tail, meet its iconic characters, and enjoy the best moments from the anime!</p>
+    </div>
+  </section>
+
+  <section id="characters" class="characters-section">
+    <div class="container">
+      <h2>Characters</h2>
+      <div class="character-list">
+        <div class="character-card">
+          <img src="img/Natsu.jpg" alt="Natsu Dragneel">
+          <h3>Natsu Dragneel</h3>
+          <p>The fire dragon slayer and a core member of Fairy Tail Guild.</p>
+        </div>
+        <div class="character-card">
+          <img src="img/Lucy.jpg" alt="Lucy Heartfilia">
+          <h3>Lucy Heartfilia</h3>
+          <p>A celestial wizard with a passion for writing and adventure.</p>
+        </div>
+        <div class="character-card">
+          <img src="img/Gray.jpg" alt="Gray Fullbuster">
+          <h3>Gray Fullbuster</h3>
+          <p>An ice wizard with a cool demeanor and unmatched loyalty.</p>
+        </div>
+        <div class="character-card">
+          <img src="img/Ezra.jpg" alt="Erza Scarlet">
+          <h3>Erza Scarlet</h3>
+          <p>The armored mage known for her strength and elegance in battle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="videos" class="videos-section">
+    <div class="container">
+      <h2>Fairy Tail Videos</h2>
+      <div class="video-list">
+       <iframe width="560" height="315" src="https://www.youtube.com/embed/eQo-jGm2L6Q?si=u-wDzlt9bpR9kylu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+       <iframe width="560" height="315" src="https://www.youtube.com/embed/7QQPEOcXkrY?si=MUyGKBu_NUs-nM_u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>  
+	  </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Fairy Tail Page. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
