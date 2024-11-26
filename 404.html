@@ -1,75 +1,154 @@
 <!DOCTYPE html>
-<br lang="en">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404-Not-Found</title>
+    <title>404 Page Not Found</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #4e73df, #1cc88a);;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: url('https://raw.githubusercontent.com/Sheenarom23/404/main/Eror.jpg') no-repeat center center fixed;
-            background-size: 700px;
-            color: #01080e;
+            position: relative;
+            overflow: hidden;
         }
+
+        .background-404 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20rem;
+            font-weight: 700;
+            color: rgba(0, 0, 0, 0.1);
+            z-index: 0;
+            white-space: nowrap;
+        }
+
         .container {
             text-align: center;
-            padding: 2em;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
         }
-        h1 {
-            font-size: 3em;
-            margin: 0.2em 0;
-      
+
+        .error-image {
+            position: relative;
+            margin-bottom: 20px;
+            animation: float 2s infinite;
         }
-        p {
-            font-size: 1.2em;
-            margin: 0.5em 0;
+
+        .error-image img {
+            max-width: 300px;
         }
-        a {
+
+        .error-title {
+            font-size: 4rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .error-subtitle {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .buttons a {
             text-decoration: none;
-            color: rgb(245, 246, 247);
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 25px;
             background-color: #007bff;
-            padding: 0.5em 1.5em;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
+            transition: all 0.3s ease;
         }
-        a:hover {
+
+        .buttons a:hover {
             background-color: #0056b3;
         }
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
+
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
             }
-            h2 {
-                font-size: 1.2em;
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
             }
         }
+
+        @media (max-width: 768px) {
+            .background-404 {
+                font-size: 12rem;
+            }
+
+            .error-title {
+                font-size: 3rem;
+            }
+
+            .error-subtitle {
+                font-size: 1rem;
+            }
+
+            .buttons a {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+
         @media (max-width: 480px) {
-            h1 {
-                font-size: 1.5em;
+            .background-404 {
+                font-size: 8rem;
             }
-            h2 {
-                font-size: 1em;
+
+            .error-title {
+                font-size: 2.5rem;
             }
-            p {
-                font-size: 0.9em;
+
+            .error-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .buttons a {
+                font-size: 0.8rem;
             }
         }
     </style>
 </head>
-<br>
+
+<body>
+    <div class="background-404">404</div>
     <div class="container">
-        <h1>OOPS!</h1>
-        <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
-        <br><a href="/">GO TO HOMEPAGE</a></div></br>
+        <div class="error-image">
+            <img src="https://i.imgur.com/oCkEbrA.png" alt="Error Image">
+        </div>
+        <h1 class="error-title">Page Not Found</h1>
+        <p class="error-subtitle">Why don't you try one of these pages instead?</p>
+        <div class="buttons">
+            <a href="index.html">Go Back Home</a>
+        </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
