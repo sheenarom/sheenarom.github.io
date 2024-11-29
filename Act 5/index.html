@@ -37,9 +37,24 @@
             background-position: center;
             text-align: center;
             color: linear-gradient(135deg, #4e73df, #1cc88a);
-            padding: 250px 20px;
+            padding: 230px 20px;
             font-family: 'Poppins', sans-serif;
             color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            #home {
+                background-size: contain; 
+                background-attachment: fixed;
+            }
+
+            #home h1 {
+                font-size: 2rem; 
+            }
+
+            #home p {
+                font-size: 1rem;
+            }
         }
 
         #home .container {
@@ -99,6 +114,23 @@
             border: none;
         }
 
+        @media (max-width: 576px) {
+            iframe {
+                height: 200px; 
+            }
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
         footer {
             background-color: #333;
             color: #fff;
@@ -121,6 +153,12 @@
             border-radius: 40%;
             cursor: pointer;
             text-decoration: none;
+        }
+
+        @media (max-width: 576px) {
+            #sticky-button {
+                padding: 8px; 
+            }
         }
     </style>
 </head>
