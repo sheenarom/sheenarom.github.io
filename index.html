@@ -2,634 +2,168 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home Page</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="icon" href="https://i.pinimg.com/736x/78/2b/a2/782ba2925c0500abd46286dd07ddc226.jpg" type="image/png" />
-  <style>
-    body {
-      font-family: "Arial", "Helvetica", sans-serif;
-      background: linear-gradient(135deg, #4e73df, #1cc88a);
-    }
-
-    .navbar {
-      background-color: #f8f9fa;
-      border-bottom: 2px solid #ddd;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .navbar-brand {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.8rem;
-      color: #333;
-      letter-spacing: 2px;
-      font-weight: bold;
-      text-transform: uppercase;
-      transition: color 0.3s ease;
-    }
-
-    .navbar-nav .nav-item .nav-link {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1rem;
-      color: #333;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 10px 20px;
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
-
-    .navbar-nav .nav-item .nav-link:hover,
-    .navbar-nav .nav-item .nav-link:focus {
-      color: #ff5722;
-      transform: translateY(-3px);
-      text-decoration: none;
-    }
-
-    .navbar-toggler {
-      border-color: #ff5722;
-    }
-
-    .navbar-toggler-icon {
-      background-color: #ff5722;
-    }
-
-    .navbar:hover {
-      background-color: #f1f1f1;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    }
-
-    .navbar-collapse {
-      transition: opacity 0.3s ease;
-    }
-
-    .navbar-nav .nav-item {
-      margin-bottom: 10px;
-    }
-
-    .hero-section {
-      background-image: url('imgs/background.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-section::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-    }
-
-    .hero-section .container {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero-section h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      color: #333;
-    }
-
-    .hero-section p.lead {
-      font-size: 1.25rem;
-      margin-top: 15px;
-      color: #333;
-    }
-
-    .hero-section img {
-      max-width: 500px;
-    }
-
-    .hero-section .btn {
-      background-color: #007bff;
-      border: none;
-      transition: all 0.3s ease;
-    }
-
-    .hero-section .btn:hover {
-      background-color: #0056b3;
-      transform: scale(1.05);
-    }
-
-    #about {
-      background: linear-gradient(to right, #f3e7e9, #e3eeff);
-      padding: 50px 0;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    #about img {
-      border-radius: 50px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    #about img:hover {
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    #about h2 {
-      font-family: 'Georgia', serif;
-      font-size: 2.5rem;
-      color: #2c2c54;
-      margin-bottom: 20px;
-      border-bottom: 3px solid #ec38b0;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
-
-    #about p {
-      font-family: 'Arial', sans-serif;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #333;
-      text-align: center;
-    }
-
-    .jumbotron {
-      background: linear-gradient(135deg, #4e73df, #1cc88a);
-      color: white;
-      padding: 30px 0;
-      text-align: center;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-    }
-
-    .jumbotron:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    .jumbotron .display-4 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3rem;
-      font-weight: bold;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      animation: fadeInUp 1s ease-out;
-    }
-
-    .jumbotron .lead {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.2rem;
-      letter-spacing: 1px;
-      opacity: 0.8;
-      margin-bottom: 40px;
-      animation: fadeInUp 1.5s ease-out;
-    }
-
-    @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    #activities {
-      padding: 20px;
-      background: linear-gradient(135deg, #4e73df, #1cc88a);
-    }
-
-    #activities .card-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      ;
-      gap: 20px;
-      justify-content: center;
-    }
-
-    #activities .card {
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      height: 450px;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      display: flex;
-      text-decoration: none;
-    }
-
-    #activities .card:hover {
-       background: linear-gradient(to bottom, #6a82fb, #fc5c7d);
-      transform: translateY(-10px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    #activities .card img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-    }
-
-    #activities .card-body {
-      padding: 15px;
-      text-align: center;
-      background: linear-gradient(135deg, #4e73df, #1cc88a);
-      flex-grow: 1;
-    }
-
-    #activities .card-title {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    #activities .card-text {
-      font-size: 1rem;
-      color: #666;
-      margin-bottom: 20px;
-    }
-
-    #activities .btn {
-      background: #007bff;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 25px;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    #activities .btn:hover {
-      background: #0056b3;
-      transform: scale(1.1);
-    }
-
-    #contact {
-      background: linear-gradient(135deg, #4e73df, #1cc88a);
-      border-radius: 10px;
-      padding: 30px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    #contact h2 {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #333;
-      margin-bottom: 20px;
-    }
-
-    #contact form .form-control {
-      border: 1px solid #ced4da;
-      border-radius: 8px;
-      padding: 10px;
-    }
-
-    #contact form .btn {
-      background-color: #007bff;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 25px;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-
-    #contact form .btn:hover {
-      background-color: #0056b3;
-      transform: scale(1.05);
-    }
-
-    #contact .map-container iframe {
-      border-radius: 10px;
-      border: 1px solid #ddd;
-    }
-
-    footer {
-      background-color: #333;
-      color: #fff;
-    }
-
-    footer p {
-      margin: 0;
-      font-size: 1rem;
-    }
-
-    footer .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-    }
-
-    footer .social-icons a {
-      color: #fff;
-      font-size: 1.5rem;
-      transition: color 0.3s ease;
-    }
-
-    footer .social-icons a:hover {
-      color: #007bff;
-    }
-
-    #projects {
-      background: linear-gradient(135deg, #4e73df, #1cc88a);
-      padding: 50px 20px;
-      border-radius: 10px;
-    }
-
-    #projects h2 {
-      font-size: 2.5rem;
-      color: #333;
-      font-weight: bold;
-    }
-
-    #projects .text-muted {
-      font-size: 1rem;
-      margin-bottom: 20px;
-      color: #6c757d;
-    }
-
-    #projects .filter-btn {
-      display: inline-block;
-      margin: 0 10px;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    #projects .filter-btn.active,
-    #projects .filter-btn:hover {
-      background-color: #0056b3;
-    }
-
-    #projects .projects-item {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #projects .card {
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    #projects .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    #projects .card-img-top {
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .icon-link {
-      font-size: 2rem;
-      margin: 10px;
-      color: #5c6ac4;
-      transition: color 0.3s ease;
-    }
-
-    #sticky-button {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            z-index: 9999;
-            background-color: #96069e;
-            color: #fff;
-            padding: 10px;
-            border-radius: 40%;
-            cursor: pointer;
-            text-decoration: none;
-        }
-  </style>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Portfolio</title>
+    <link rel="icon" href="imgs/sheena.png" type="image/x-icon" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">PORTFOLIO</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#activities">Activities</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#projects">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white" href="index.html">
+                <img src="imgs/sheena.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top"></a>
+            <h1 class="fs-4 fw-bold my-3 text-white">PORTFOLIO</h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-  <header class="hero-section text-center text-md-start py-5" id="home">
-    <div class="container d-flex align-items-center flex-column flex-md-row">
-      <div class="col-md-6 order-md-1 text-white">
-        <h1 class="fw-bold">Sheena Rom</h1>
-        <p class="lead">
-           Designing experiences that connect, inspire, and engage.
-        </p>
-        <a href="ROM-RESUME.pdf" class="btn btn-primary btn-lg mt-3">Resume</a>
-      </div>
-      <div class="col-md-6 text-center order-md-2">
-        <img src="imgs/sheena.png" alt="Sheena Rom" class="img-fluid box-shadow" />
-      </div>
-    </div>
-  </header>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center fw-bold>
+                    <li class=" nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-  <section class="container my-5" id="about">
-    <div class="row">
-      <div class="col-md-6">
-        <img src="imgs/Aboutme.jpg" alt="About Me" class="img-fluid rounded" />
-      </div>
-      <div class="col-md-6">
-        <h2>About Me</h2>
-        <p>
-          Hello! I’m <strong>Sheena Rom</strong>, a 4th-year BS Information Technology student at the
-          <strong>Polytechnic University of the Philippines (PUP) </strong>
-        </p>
-        <p>
-          I’m a passionate designer with a keen eye for detail and a love for
-          creativity. My expertise lies in crafting user-friendly designs and
-          innovative visuals that combine technology and art. From graphic
-          design to web development projects, I aim to deliver work that is
-          not only functional but also meaningful.
-        </p>
-      </div>
-    </div>
-    </div>
-  </section>
+    <section id="home" class="text-dark text-center mt-0">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 d-flex p-4 my-0 align-items-center justify-content-center mb-4 mb-md-0">
+                    <img src="imgs/sheena.png" alt="Profile Image" class="profile-img-large">
+                </div>
+                <div class="col-md-6 text-left">
+                    <h1 class="title">Sheena D. Rom</h1>
+                    <p class="subTitle text-dark fs-5 fw-bold">Designing experiences that connect, inspire, and engage.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section class="jumbotron text-center">
-    <div id="activities">
-      <h1 class="display-4">Course Activities</h1>
-      <p class="lead">Explore my activities below.</p>
-      <div class="card-container">
-        <div class="card">
-          <img src="imgs/Activity1.png" alt="Product Brochure">
-          <div class="card-body">
-            <h5 class="card-title">Product Brochure</h5>
-            <p class="card-text">Takoyaki Brochure .</p>
-            <a href="https://drive.google.com/file/d/1odsBrcuTMYkuc-awn1J7fvpxaEjKn9nr/view?usp=sharing"
-              class="btn btn-primary">Activity 1</a>
-          </div>
+    <div id="about" class="section about">
+        <div class="container">
+            <div class="row">
+                <h1 class="title heading-2 text-center text-white">About Me</h1>
+                <div class="col-md-6 d-flex flex-column align-items-center justify-content-center">
+                    <p class="subTitle text-white fs-5 fw-bold text-center">
+                        Hello! I’m Sheena Rom, a 4th-year BS Information Technology student at the Polytechnic
+                        University of the Philippines (PUP).
+                    </p>
+                    <p class="subTitle text-white fs-5 fw-bold text-center">
+                        I’m a passionate designer with a keen eye for detail and a love for creativity. My expertise
+                        lies in crafting user-friendly designs and innovative visuals that combine technology and art.
+                        From graphic design to web development projects, I aim to deliver work that is not only
+                        functional but also meaningful.
+                    </p>
+                </div>
+                <div class="col-md-6 d-flex p-4 my-0 align-items-center justify-content-center mb-4 mb-md-0">
+                    <img src="imgs/Aboutme.jpg" alt="Profile Image" class="profile-img-large">
+                </div>
+            </div>
         </div>
-        <div class="card">
-          <img src="imgs/Activity2.png" alt="Country Showcase">
-          <div class="card-body">
-            <h5 class="card-title">Coutry Showcase</h5>
-            <p class="card-text">A place that i love to go .</p>
-            <a href="Act 2/index.html" class="btn btn-primary">Activity 2</a>
-          </div>
-        </div>
-        <div class="card">
-          <img src="imgs/Homepage.png" alt="Home Page">
-          <div class="card-body">
-            <h5 class="card-title">Home Page </h5>
-            <p class="card-text">Home page for my future works.</p>
-            <a href="#" class="btn btn-primary">Activity 3</a>
-          </div>
-        </div>
-        <div class="card">
-          <img src="imgs/Activity4.jpeg" alt="Dragon Ball API">
-          <div class="card-body">
-            <h5 class="card-title">Dragon Ball API</h5>
-            <p class="card-text">Website utilizes a free public API .</p>
-            <a href="Act 4/index.html" class="btn btn-primary">Activity 4</a>
-          </div>
-        </div>
-        <div class="card">
-          <img src="imgs/Embed.png" alt="Embed Video">
-          <div class="card-body">
-            <h5 class="card-title">Embed Video</h5>
-            <p class="card-text">New Page with a video featured by emebedding using the Youtube emebed API.</p>
-            <a href="Act 5/index.html" class="btn btn-primary">Midterm 01</a>
-          </div>
-        </div>
-        <div class="card">
-          <img src="imgs/Activity4.jpeg" alt="Apk">
-          <div class="card-body">
-            <h5 class="card-title">Apk</h5>
-            <p class="card-text">Android Mobile Application.</p>
-            <a href="Act 4/index.html" class="btn btn-primary">Midterm 02</a>
-          </div>
-        </div>
-        <div class="card">
-          <img src="imgs/404 Not Found.png" alt="404 Not Found">
-          <div class="card-body">
-            <h5 class="card-title">404 Not Found</h5>
-            <p class="card-text">Error 404 page.</p>
-            <a href="404.html" class="btn btn-primary">Midterm 03</a>
-          </div>
-        </div>
-      </div>
     </div>
-  </section>
 
-  <section class="container my-5" id="projects">
-    <h2 class="text-center mb-4">Projects</h2>
-    <p class="text-center text-muted"><strong>Showcasing some of my recent work and projects.</strong></p>
-    <div class="text-center mb-4">
-      <button class="filter-btn" data-filter="404 Not Found">404 Not Found</button>
-      <button class="filter-btn" data-filter="midterm">Midterm</button>
-      <button class="filter-btn" data-filter="parallax">Parallax</button>
-    </div>
-    <div class="row g-4">
-      <div class="col-md-4 portfolio-item" data-category="404 Not Found">
-        <div class="card">
-          <img src="imgs/404 Not Found.jpg" class="card-img-top" alt="Project 1">
-          <div class="card-body">
-            <h5 class="card-title">404 Not Found</h5>
-            <p class="card-text">Description of the project.</p>
-            <a href="404.html" class="btn btn-primary">Go to 404  Not Found</a>
-          </div>
+    <section id="projects" class="projects section text-center">
+        <div class="container">
+            <h1 class="title heading-2 ">Projects</h1>
+            <h2 class="subTitle text-dark fs-5 fw-bold">
+                Explore my projects
+            </h2>
+            <div class="row">
+                <div class="col-12 col-lg-4 col-md-6 d-flex align-items-stretch my-1"></div>
+            </div>
+            <div class="row d-flex align-items-stretch justify-content-center" id="container"></div>
         </div>
-      </div>
-      <div class="col-md-4 portfolio-item" data-category="midterm">
-        <div class="card">
-          <img src="imgs/Sneakers.jpg" class="card-img-top" alt="Project 2">
-          <div class="card-body">
-            <h5 class="card-title">Midterm Exam</h5>
-            <p class="card-text">Description of the project.</p>
-            <a href="404.html" class="btn btn-primary">Go to Sneakers</a>
-          </div>
+    </section>
+
+    <section class="container my-5" id="contact">
+        <h2 class="text-center mb-4 title">Contact Me</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h5><strong>Contact Details</strong></h5>
+                <p><strong>Email:</strong> sheenarom27@gmail.com</p>
+                <p><strong>Phone:</strong> (097) 5613-4542</p>
+                <p><strong>Location:</strong> MMRC San Bartolome Santo Tomas Batangas</p>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.41919079843!2d121.1723338738318!3d14.11142798886827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd66766c78c6d3%3A0xd8eff2f703991b0a!2sMount%20Makiling%20Re-Creation%20Center!5e0!3m2!1sen!2sph!4v1732458126364!5m2!1sen!2sph"
+                    width="100%" height="300" style="border: 0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
         </div>
-      </div>
-      <div class="col-md-4 portfolio-item" data-category="parallax">
-        <div class="card">
-          <img src="imgs/Parallax.png" class="card-img-top" alt="Project 3">
-          <div class="card-body">
-            <h5 class="card-title">Parallax Activity</h5>
-            <p class="card-text">Description of the project.</p>
-            <a href="404.html" class="btn btn-primary">Go to Parallax 7</a>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="container my-5" id="contact">
-    <h2 class="text-center mb-4">Contact Me</h2>
-    <div class="row">
-      <div class="col-md-6">
-        <form>
-          <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" required />
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" required />
-          </div>
-          <div class="mb-3">
-            <label for="message" class="form-label">Message</label>
-            <textarea class="form-control" id="message" rows="4" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Send Message</button>
-        </form>
-      </div>
-      <div class="col-md-6">
-        <h5><strong>Contact Details</strong></h5>
-        <p><strong>Email:</strong> sheenarom27@gmail.com</p>
-        <p><strong>Phone:</strong> (097) 5613-4542</p>
-        <p><strong>Location:</strong> MMRC San Bartolome Santo Tomas Batangas</p>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.41919079843!2d121.1723338738318!3d14.11142798886827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd66766c78c6d3%3A0xd8eff2f703991b0a!2sMount%20Makiling%20Re-Creation%20Center!5e0!3m2!1sen!2sph!4v1732458126364!5m2!1sen!2sph"
-          width="100%" height="300" style="border: 0;" allowfullscreen="" loading="lazy">
-        </iframe>
-      </div>
-    </div>
-    </div>
-  </section>
+    <footer id="footer" class="footer text-white d-flex text-center" style="background-color: #111;">
+        <div class="footer-text w-100">
+            <p>&copy; 2024 Sheena D. Rom. All rights reserved.</p>
+        </div>
+    </footer>
 
-  <a href="#" id="sticky-button">Back to Top</a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-  <footer class="text-center py-4">
-    <p>&copy; Sheena Rom 2024.</p>
-  </footer>
+    <script>
+        document.querySelectorAll('a.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        var images = ["imgs/Activity1.png", "imgs/Activity2.png", "imgs/Homepage.png", "imgs/Activity4.jpeg", "imgs/embed.png", "imgs/Homepage.png", "imgs/404.png"];
+        var names = ["Product Brochure", "Country Showcase", "Homepage", "API", "Embedded Video", "Application", "404 Not Found"]
+        var links = ["https://drive.google.com/file/d/1_no4Z5xeda-oinmBJOJQn9Q4Y9lrlSwh/view?usp=sharing",
+            "Act 2/index.html",
+            "#",
+            "Act 4/index.html",
+            "Act 5/index.html", "DITO", "404.html"]
+
+        for (var i = 0; i < names.length; i++) {
+            var container = document.getElementById("container");
+            container.innerHTML += `
+            <div class="col-12 col-lg-4 d-flex align-items-stretch my-3">
+                <div class="card">
+                    <img src="${images[i]}" class="card-img-top">
+                    <div class="card-body">
+                        <h1 class="card-title poppins-regular text-center">${names[i]}</h1>
+                        <a href="${links[i]}" class="btn btn-primary align-items-stretch ">View Project</a>
+                    </div>
+                </div>
+            </div>`;
+        }
+    </script>
+
 </body>
 
 </html>
